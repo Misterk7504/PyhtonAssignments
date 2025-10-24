@@ -1,0 +1,119 @@
+
+
+1. **Find difference between highest and lowest revenue**  
+```python
+revenues = [120000, 135000, 128000, 142000, 150000]
+difference = max(revenues) - min(revenues)
+print(difference)  # Output: 30000
+```
+
+2. **Unpack tuple and print formatted string**  
+```python
+account = ('Asha', 'Savings', 56000, 'KCH')
+name, account_type, balance, branch = account
+print(f"{name} has ₹{balance} in her {account_type} account (Branch: {branch})")
+# Output: Asha has ₹56000 in her Savings account (Branch: KCH)
+```
+
+3. **Convert string list to integers and find average**  
+```python
+numbers = ['45000', '56000', '38000']
+int_numbers = [int(num) for num in numbers]  # List comprehension for conversion
+average = sum(int_numbers) / len(int_numbers)
+print(average)  # Output: 46333.333333333336
+```
+
+4. **Replace 'Delhi' and reverse list**  
+```python
+cities = ['Kochi', 'Chennai', 'Mumbai', 'Delhi', 'Pune']
+cities[cities.index('Delhi')] = 'Hyderabad'
+reversed_cities = cities[::-1]
+print(reversed_cities)  # Output: ['Pune', 'Hyderabad', 'Mumbai', 'Chennai', 'Kochi']
+```
+
+5. **Combine tuples and find average interest rate**  
+```python
+interest_2024 = (7.1, 7.3, 7.2)
+interest_2025 = (7.4, 7.5)
+combined = interest_2024 + interest_2025
+average = sum(combined) / len(combined)
+print(average)  # Output: 7.3
+```
+
+6. **Extract branch code and year from string**  
+```python
+branch_id = 'TVM-FIN-2025'
+branch_code = branch_id[:3]
+year = branch_id[-4:]
+print(branch_code, year)  # Output: TVM 2025
+```
+
+7. **Find total deposits and withdrawals**  
+```python
+transactions = [10000, -2000, 5000, -1500, 3000]
+deposits = sum([x for x in transactions if x > 0])  # List comprehension for positive values
+withdrawals = sum([x for x in transactions if x < 0])  # List comprehension for negative values
+print(deposits, withdrawals)  # Output: 18000 -3500
+```
+
+8. **Print formatted message in title case**  
+```python
+name = 'John Doe'
+balance = 72500
+message = f"{name} has a balance of ₹{balance}".title()
+print(message)  # Output: John Doe Has A Balance Of ₹72500
+```
+
+9. **Calculate simple interest**  
+```python
+customer = ('Kiran', 'Loan', 80000, 7.5)
+principal, rate = customer[2], customer[3]
+simple_interest = (principal * rate * 1) / 100
+total_amount = principal + simple_interest
+print(total_amount)  # Output: 86000.0
+```
+
+10. **Pair branches with profits**  
+```python
+branches = ['Kochi', 'Chennai', 'Mumbai']
+profits = [120000, 95000, 134000]
+paired_list = list(zip(branches, profits))
+print(paired_list)  # Output: [('Kochi', 120000), ('Chennai', 95000), ('Mumbai', 134000)]
+```
+
+11. **Extract top three salaries**  
+```python
+salaries = [45000, 56000, 38000, 62000, 54000]
+top_three = sorted(salaries, reverse=True)[:3]
+print(top_three)  # Output: [62000, 56000, 54000]
+```
+
+12. **Convert tuple to list and change third value**  
+```python
+exchange_rates = (83.2, 83.1, 83.5, 83.0, 82.9)
+rates_list = list(exchange_rates)
+rates_list[2] = 84.0
+print(rates_list)  # Output: [83.2, 83.1, 84.0, 83.0, 82.9]
+```
+
+13. **Combine lists into formatted string**  
+```python
+customer_names = ['Asha', 'John', 'Meera']
+balances = [56000, 72000, 65000]
+formatted = ','.join(f"{name}:{balance}" for name, balance in zip(customer_names, balances))
+print(formatted)  # Output: Asha:56000,John:72000,Meera:65000
+```
+
+14. **Print formatted sentence**  
+```python
+account_info = ('Deepa', 'Savings', 98000)
+name, account_type, balance = account_info
+print(f"Account Holder {name} has ₹{balance} in {account_type} account")
+# Output: Account Holder Deepa has ₹98000 in Savings account
+```
+
+15. **Extract Chennai branch collections**  
+```python
+branches = [['Kochi', [120000, 135000]], ['Chennai', [95000, 110000]]]
+chennai_collections = branches[1][1]
+print(chennai_collections)  # Output: [95000, 110000]
