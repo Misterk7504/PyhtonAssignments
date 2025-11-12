@@ -1,0 +1,27 @@
+{
+  "expenses": {
+    "Food": 15.5,
+    "Transport": 8.0,
+    "Entertainment": 25.0
+  },
+  "daily_records": [
+    {
+      "date": "2025-11-12",
+      "category": "Food",
+      "amount": 15.5,
+      "description": "Lunch at cafe"
+    },
+    {
+      "date": "2025-11-12",
+      "category": "Transport",
+      "amount": 8.0,
+      "description": "Bus fare"
+    },
+    {
+      "date": "2025-11-13",
+      "category": "Entertainment",
+      "amount": 25.0,
+      "description": "Movie ticket"
+    }
+  ]
+}
