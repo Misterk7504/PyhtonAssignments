@@ -175,13 +175,32 @@ plt.show()
 # 4. Interpretation & Profiling
 
 # For each cluster (using KMeans as primary)
+# Get the names of the one-hot encoded columns
+encoded_cat_cols_names = ohe.get_feature_names_out(cat_features)
+
 for cluster in range(optimal_k):
     cluster_data = df[df['kmeans_cluster'] == cluster]
     print(f"\nCluster {cluster} Profile:")
+    print("Numerical Feature Means:")
     print(cluster_data[num_features].mean())  # Numerical means
-    # Categorical modes (original cats before encoding)
-    for cat in cat_features:
-        print(f"{cat} mode: {cluster_data[cat].mode()[0] if not cluster_data[cat].empty else 'N/A'}")
+
+    print("\nCategorical Feature Modes (Dominant Category):")
+    for original_cat_feature in cat_features:
+        # Filter for columns related to the original_cat_feature
+        related_ohe_cols = [col for col in encoded_cat_cols_names if col.startswith(original_cat_feature + '_')]
+        if related_ohe_cols and not cluster_data.empty:
+            # Calculate the mean for each one-hot encoded column within the cluster
+            # The mean represents the proportion of that category in the cluster
+            means = cluster_data[related_ohe_cols].mean()
+            if not means.empty:
+                top_category_ohe_col = means.idxmax()
+                # Extract the actual category name (e.g., from 'workclass_Private' get 'Private')
+                top_category_name = top_category_ohe_col.replace(original_cat_feature + '_', '')
+                print(f"  {original_cat_feature}: {top_category_name}")
+            else:
+                print(f"  {original_cat_feature}: N/A (no data for encoded categories)")
+        else:
+            print(f"  {original_cat_feature}: N/A (no encoded columns or empty cluster data)")
 
 # Compare with income
 pd.crosstab(df['kmeans_cluster'], income).plot(kind='bar', stacked=True)
